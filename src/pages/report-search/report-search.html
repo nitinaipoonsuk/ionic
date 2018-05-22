@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-navbar color="bsup">
+    <ion-title>
+      {{licenseName}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <app-license-search [toolHelper]="toolHelper" (masterEvent)="changePage()"></app-license-search>
+</ion-content>

@@ -1,0 +1,1 @@
+export {ChartDailyPage} from './chart-daily';

@@ -1,0 +1,32 @@
+<ion-list>
+  <ion-card *ngFor="let item of historyEventModels" (click)="rowClick(item)" color="{{
+          item.Status == 'Running' ||  item.Status == 'IgOn' || item.Status == 'Overspeed' ? 'running' : 
+          item.Status == 'Idling' || item.Status == 'IdlingStart' ? 'idling' : ''
+          }}">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="font-head"><b>{{item.StatusDate}}</b>
+        </ion-col>
+        <ion-col col-6 align="right" class="{{item.Status == 'Overspeed' ? 'font-overspeed': ''}}">
+          <b>{{t.language[item.Status]}}</b>
+          <ion-col *ngIf="item.Speed > 5" class="font-detail">
+            <ion-icon name="speedometer"></ion-icon> {{item.Speed}}
+          </ion-col>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-3 *ngIf="settingTemp">
+          <ion-col *ngIf="historydbModel.CheckTemp1" class="font-detail">
+            <ion-icon name="thermometer"></ion-icon> 1 ({{item.Temp1}})
+          </ion-col>
+          <ion-col *ngIf="historydbModel.CheckTemp2" class="font-detail">
+            <ion-icon name="thermometer"></ion-icon> 2 ({{item.Temp2}})
+          </ion-col>
+        </ion-col>
+        <ion-col align="right">
+          <ion-col class="font-detail">{{item.Address}}</ion-col>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-list>

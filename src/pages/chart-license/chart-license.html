@@ -1,0 +1,50 @@
+<!--
+  Generated template for the ChartLicense page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="bsup">
+    <page-header-modal [headerName]="headerName"></page-header-modal>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+      <ion-card-header>
+        {{t.language.ReportStatus}}
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #totalStatus></canvas>
+      </ion-card-content>
+    </ion-card>
+ 
+    <ion-card>
+      <ion-card-header>
+        {{t.language.ReportDailyStatus}}
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #dailyStatus></canvas>
+      </ion-card-content>
+    </ion-card>
+ 
+    <ion-card>
+      <ion-card-header>
+        {{t.language.ReportDistanceDaily}}
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #distanceStatus></canvas>
+      </ion-card-content>
+    </ion-card>
+ 
+    <ion-card>
+      <ion-card-header>
+        {{t.language.ReportOverSpeed}}
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #speedStatus></canvas>
+      </ion-card-content>
+    </ion-card>
+</ion-content>

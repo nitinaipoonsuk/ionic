@@ -1,0 +1,8 @@
+{
+  "name": "btrack",
+  "app_id": "1765a168",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

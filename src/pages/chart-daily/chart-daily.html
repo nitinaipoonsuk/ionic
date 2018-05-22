@@ -1,0 +1,23 @@
+<!--
+  Generated template for the ChartDaily page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="bsup">
+    <page-header-modal [headerName]="headerName"></page-header-modal>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+      <ion-card-header>
+        {{t.language.ReportStatus}}
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #dailyStatus></canvas>
+      </ion-card-content>
+    </ion-card>
+</ion-content>

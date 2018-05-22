@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar color="bsup">
+    <page-header-group-search [headerName]="'('+ realtimeList.routeModels.length +'/'+ realtimeModel.DataAllLength +')'"
+      (masterEvent)="ionViewWillEnter()"></page-header-group-search>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <page-loading *ngIf="loading" loading=loading></page-loading>
+
+  <app-realtime-list (listClick)="openMap($event)"></app-realtime-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" [enabled]="enabled" threshold="100px">
+    <ion-infinite-scroll-content loadingSpinner="dots" loadingText="{{t.language.Loading}}"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

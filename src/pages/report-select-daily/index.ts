@@ -1,0 +1,1 @@
+export {ReportSelectDailyPage} from './report-select-daily';

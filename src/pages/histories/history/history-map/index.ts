@@ -1,0 +1,1 @@
+export {HistoryMapPage} from './history-map';

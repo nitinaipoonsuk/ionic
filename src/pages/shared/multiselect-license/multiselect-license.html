@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar color="bsup">
+    <page-header-group-search [headerName]="'('+ listModels.ListModels.length +'/'+ listModels.DataAllLength +')'" (masterEvent)="ngOnInit()"></page-header-group-search>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <page-loading *ngIf="loading" loading=loading></page-loading>
+  <div *ngIf="!loading">
+    <ion-list>
+      <ion-card *ngFor="let item of listModels.ListModels" (click)="item.CheckBoxSelect = !item.CheckBoxSelect; selectCard(item)">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-2>
+              <ion-checkbox checked="item.CheckBoxSelect" [(ngModel)]="item.CheckBoxSelect" (click)="selectCard(item)"></ion-checkbox>
+            </ion-col>
+            <ion-col col-10>
+              <h2>{{item.Name}}</h2>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event)" [enabled]="enabled" threshold="100px">
+        <ion-infinite-scroll-content loadingText="{{t.language.Loading}}"></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-list>
+  </div>
+
+  <ion-fab right bottom>
+    <button ion-fab mini color="bsup">
+      <ion-icon name="arrow-dropleft"></ion-icon>
+    </button>
+    <ion-fab-list side="left">
+      <button ion-fab (click)="clearId()">
+        <ion-icon name="md-square-outline"></ion-icon>
+      </button>
+      <button ion-fab (click)="selectAllId()">
+        <ion-icon name="md-checkbox"></ion-icon>
+      </button>
+    </ion-fab-list>
+    <button ion-fab round full color="bsup" (click)="nextPage()">{{t.language.Next}}</button>
+  </ion-fab>
+</ion-content>

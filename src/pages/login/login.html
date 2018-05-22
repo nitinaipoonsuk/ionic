@@ -1,0 +1,29 @@
+<ion-content>
+  <ion-row class="logo-custom">
+    <ion-col>
+      <ion-img width="170" height="170" src="{{LOGO}}"></ion-img>
+    </ion-col>
+  </ion-row>
+  <ion-grid>
+    <page-loading *ngIf="loading" loading=loading></page-loading>
+    <form (ngSubmit)="login()" #registerForm="ngForm" *ngIf="!loading">
+      <ion-list inset class="login-padding">
+        <ion-item>
+          <ion-label color="bsup" floating>{{t.language.Username}}</ion-label>
+          <ion-input type="text" name="username" [(ngModel)]="model.Username" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="bsup" floating>{{t.language.Password}}</ion-label>
+          <ion-input type="password" name="password" [(ngModel)]="model.Password" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-checkbox color="bsup" name="remember" [(ngModel)]="model.Remember"></ion-checkbox>
+          <ion-label color="bsup">{{t.language.Remember}}</ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-row>
+        <button ion-button round full color="bsup" type="submit" [disabled]="!registerForm.form.valid">{{t.language.Login}}</button>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

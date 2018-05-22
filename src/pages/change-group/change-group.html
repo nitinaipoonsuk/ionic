@@ -1,0 +1,31 @@
+<!--
+  Generated template for the ChangeGroup page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="bsup">
+    <page-header-modal *ngIf="!showSearch" [headerName]="t.language.SelectGroup + '('+ listModels.ListModels.length +'/'+ listModels.DataAllLength +')'"></page-header-modal>
+    <ion-buttons end *ngIf="!showSearch">
+      <button ion-button strong (click)="showSearch = !showSearch">
+      <ion-icon name="search"></ion-icon>
+    </button>
+    </ion-buttons>
+    <ion-searchbar showCancelButton *ngIf="showSearch" [(ngModel)]="searchInput" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"
+      [debounce]=777>
+    </ion-searchbar>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div *ngIf="listModels">
+    <ion-card radio-group [(ngModel)]="currentGroup" *ngFor="let item of listModels.ListModels">
+      <ion-item>
+        <ion-label>{{item.Id == 0 ? t.language.All : item.Name}}</ion-label>
+        <ion-radio value={{item.Id}} checked="{{currentGroup == item.Id}}" (ionSelect)="rowClick(item)"></ion-radio>
+      </ion-item>
+    </ion-card>
+  </div>
+</ion-content>

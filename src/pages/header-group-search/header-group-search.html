@@ -1,0 +1,18 @@
+<div *ngIf="!showSearch">
+  <ion-title start>
+
+  </ion-title>
+  <ion-buttons end>
+    <button ion-button (click)="changeGroup()" strong>
+        <ion-icon name="contacts"></ion-icon>
+        <ion-label>({{h.vehicleGroup && h.vehicleGroup.Id != 0 ? h.vehicleGroup.Name : t.language.All}}){{headerName}}</ion-label>
+      </button>
+    <button ion-button strong (click)="showSearch = !showSearch">
+      <ion-icon name="search"></ion-icon>
+    </button>
+  </ion-buttons>
+</div>
+
+<ion-searchbar showCancelButton *ngIf="showSearch" [(ngModel)]="searchInput" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"
+  [debounce]=777>
+</ion-searchbar>

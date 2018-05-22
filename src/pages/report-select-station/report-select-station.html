@@ -1,0 +1,65 @@
+<!--
+  Generated template for the ReportSelectDaily page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="bsup">
+    <ion-title>{{headerName}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-card padding *ngFor="let item of stationReportModels">
+      <ion-card-header>
+        <ion-row>
+          <ion-col col-6 (click)="toggleDetails(item)">
+          <h2>{{item.Name}}</h2>
+        </ion-col>
+        <ion-col col-6 text-right>
+          <p>{{t.language.Period}}: {{item.Period}}</p>
+        </ion-col>
+        </ion-row>
+      </ion-card-header>
+
+      <ion-card-content *ngIf="item.showDetails">
+
+        <ion-row>
+          <h3 col-6>{{t.language.InDateTime}}</h3>
+          <p col-6 text-right>{{item.InDateTime}}</p>
+        </ion-row>
+
+        <ion-row>
+          <h3 col-6>{{t.language.OutDateTime}}</h3>
+          <p col-6 text-right>{{item.OutDateTime}}</p>
+        </ion-row>
+
+        <ion-row>
+          <h3 col-6>{{t.language.InTemp}}</h3>
+          <p col-6 text-right>{{item.InTemp}}</p>
+        </ion-row>
+
+        <ion-row>
+          <h3 col-6>{{t.language.OutTemp}}</h3>
+          <p col-6 text-right>{{item.OutTemp}}</p>
+        </ion-row>
+
+        <ion-row>
+          <h3 col-6>{{t.language.Idletotal}}</h3>
+          <p col-6 text-right>{{item.Idle}}</p>
+        </ion-row>
+
+        <ion-row>
+          <h3 col-6>{{t.language.Parktotal}}</h3>
+          <p col-6 text-right>{{item.Park}}</p>
+        </ion-row>
+
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>

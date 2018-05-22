@@ -1,0 +1,38 @@
+page-report-select-license {
+  ion-list {
+    ion-item {
+      background-color: transparent;
+      padding: 0;
+      position: relative;
+    }
+    ion-label {
+      div {
+        text-transform: none;
+        font-size: 0.8em;
+        white-space: normal;
+        text-align: justify;
+      }
+    }
+    .ion-button  {
+      font-size: 1.8rem;
+      padding: 0;
+      text-align: center;
+      position: absolute;
+      right: 10px;
+      &:before {
+        font-weight: bold;
+      }
+    }
+    .font-head-overusag{
+        color: red;
+    }
+  }
+
+  ion-icon#graph{
+      font-size: 40px !important;
+    }
+
+}
+ion-app.md [padding], ion-app.md [padding] .scroll-content {
+    padding: 0 !important;
+}

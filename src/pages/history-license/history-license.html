@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="bsup">
+    <page-header-group-search [headerName]="'('+ listModels.ListModels.length +'/'+ listModels.DataAllLength +')'"
+      (masterEvent)="ionViewWillEnter()"></page-header-group-search>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <page-loading *ngIf="loading" loading=loading></page-loading>
+    <div *ngIf="!loading">
+      <ion-list lines class="list">
+        <ion-card *ngFor="let item of listModels.ListModels" (click)="ChangePage(item)">
+          <button ion-item>{{item.Name}}</button>
+        </ion-card>
+      </ion-list>
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event)" [enabled]="enabled" threshold="100px">
+        <ion-infinite-scroll-content loadingSpinner="dots" loadingText="{{t.language.Loading}}"></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+  </ion-grid>
+</ion-content>

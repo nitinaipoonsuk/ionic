@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="bsup">
+    <page-header-modal [headerName]="t.language.ChangeLanguage"></page-header-modal>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card radio-group [(ngModel)]="language">
+    <ion-item>
+      <ion-label>ไทย</ion-label>
+      <ion-radio value="th"></ion-radio>
+    </ion-item>
+  </ion-card>
+  <ion-card radio-group [(ngModel)]="language">
+    <ion-item>
+      <ion-label>English</ion-label>
+      <ion-radio value="en"></ion-radio>
+    </ion-item>
+  </ion-card>
+  <ion-grid>
+    <button ion-button round full color="bsup" (click)="save()" [disabled]="t.language.Lang == language">{{t.language.Done}}</button>
+  </ion-grid>
+</ion-content>

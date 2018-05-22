@@ -1,0 +1,1 @@
+export { SettingreportDetailPage } from './settingreport-detail'

@@ -1,0 +1,37 @@
+<ion-list>
+  <ion-card *ngFor="let item of routeModels" (click)="rowClick(item)" color="{{
+          item.Status == 'Running' ||  item.Status == 'IgOn' || item.Status == 'Overspeed' ? 'running' : 
+          item.Status == 'Idling' || item.Status == 'IdlingStart' ? 'idling' : ''
+          }}">
+    <ion-grid>
+      <ion-row class="font-head">
+        <ion-col col-8>
+          <ion-row>
+            <b>{{item.License}}</b>
+            <div *ngIf="settingTemp">
+              <ion-col *ngIf="item.CheckTemp1" class="font-detail">
+                <ion-icon name="thermometer"></ion-icon> 1 ({{item.Temp1}})
+              </ion-col>
+              <ion-col *ngIf="item.CheckTemp2" class="font-detail">
+                <ion-icon name="thermometer"></ion-icon> 2 ({{item.Temp2}})
+              </ion-col>
+            </div>
+          </ion-row>
+        </ion-col>
+        <ion-col col-4 align="right">
+          <ion-row class="{{item.Status == 'Overspeed' ? 'font-overspeed': ''}}">
+            <b>{{t.language[item.Status]}}</b>
+            <ion-col *ngIf="item.Speed > 5" class="font-detail">
+              <ion-icon name="speedometer"></ion-icon> {{item.Speed}}
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-5 col-sm-4 class="font-detail">{{item.StatusDate}}
+          <ion-icon name="clock"></ion-icon> {{item.Up}}</ion-col>
+        <ion-col col-7 col-sm-8 align="right" class="font-detail">{{item.Address}}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-list>

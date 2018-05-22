@@ -1,0 +1,46 @@
+<ion-grid>
+  <ion-card>
+    <ion-row>
+      <ion-col col-8>
+        <ion-item>
+          <ion-label>{{t.language.StartDate}}</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="startDate" min="{{startDateMin}}" max="{{startDateMax}}" (ionChange)="setLimitEndDate()"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4>
+        <ion-item>
+          <ion-datetime displayFormat="HH:mm" [(ngModel)]="startTime"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="dateLength != 0">
+      <ion-col>
+        <ion-item>
+          <ion-label>{{t.language.EndDate}}</ion-label>
+          <ion-select [(ngModel)]="dateLength" [selectOptions]="notificationSelectOpts" interface="action-sheet" cancelText={{t.language.Close}}>
+            <ion-option value=1>1 {{t.language.Day}}</ion-option>
+            <ion-option value=3>3 {{t.language.Day}}</ion-option>
+            <ion-option value=5>5 {{t.language.Day}}</ion-option>
+            <ion-option value=7>7 {{t.language.Day}}</ion-option>
+            <ion-option value=0>{{t.language.Custom}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="dateLength == 0">
+      <ion-col col-8>
+        <ion-item>
+          <ion-label>{{t.language.EndDate}}</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="endDate" min="{{endDateMin}}" max="{{endDateMax}}"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4>
+        <ion-item>
+          <ion-datetime displayFormat="HH:mm" [(ngModel)]="endTime"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <button ion-button round full color="bsup" (click)="searchEvent()">{{t.language.Search}}</button>
+</ion-grid>

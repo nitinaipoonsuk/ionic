@@ -1,0 +1,8 @@
+
+<ion-tabs color="bsup">
+
+  <ion-tab [root]="tab1Root" tabTitle="{{t.language.Realtime}}"  tabIcon="navigate"></ion-tab>
+  <ion-tab *ngIf="showHistoryTap" [root]="tab2Root" tabTitle="{{t.language.History}}"  tabIcon="clock"></ion-tab>
+  <ion-tab *ngIf="showReportTap" [root]="tab3Root" tabTitle="{{t.language.Report}}" tabIcon="ios-paper"></ion-tab>
+  <ion-tab *ngIf="showMoreTap" [root]="tab4Root" tabTitle="{{t.language.More}}" tabIcon="more"></ion-tab>
+</ion-tabs>

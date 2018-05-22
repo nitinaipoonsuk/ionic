@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar color="bsup">
+    <ion-title>{{t.language.More}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content">
+  <ion-list no-lines>
+    <ion-list-header>
+      {{t.language.HiddenAndShowTemp}}
+    </ion-list-header>
+    <ion-item >
+      <ion-avatar item-left>
+        <ion-icon class='icon-btn' name="ios-thermometer"></ion-icon>
+      </ion-avatar>
+      <ion-label>{{t.language.Realtime}}</ion-label>
+      <ion-toggle [(ngModel)]="tempRealtime" ></ion-toggle>
+    </ion-item>
+    <ion-item *ngIf="showTempHistory">
+      <ion-avatar item-left>
+        <ion-icon class='icon-btn' name="ios-thermometer"></ion-icon>
+      </ion-avatar>
+      <ion-label>{{t.language.History}}</ion-label>
+      <ion-toggle [(ngModel)]="tempHistory"></ion-toggle>
+    </ion-item>
+    <ion-list-header>
+      {{t.language.Setting}}
+    </ion-list-header>
+    <ion-item (click)="vehicleSetting()" *ngIf="showVehicleSetting">
+      <ion-avatar item-left>
+        <ion-icon class='icon-btn' name="md-settings"></ion-icon>
+      </ion-avatar>
+      <ion-label>{{t.language.VehicleSetting}}</ion-label>
+    </ion-item>
+    <ion-item (click)="changeLanguage()">
+      <ion-avatar item-left>
+        <ion-icon class='icon-btn' name="text"></ion-icon>
+      </ion-avatar>
+      <ion-label>{{t.language.ChangeLanguage}}</ion-label>
+      <ion-label style="text-align: right;" color="bsup">{{t.language.Language}}</ion-label>
+    </ion-item>
+    <ion-item (click)="changePassword()">
+      <ion-avatar item-left>
+        <ion-icon class='icon-btn' name="lock"></ion-icon>
+      </ion-avatar>
+      <ion-label>{{t.language.ChangePassword}}</ion-label>
+    </ion-item>
+    <ion-item (click)="helpSlides()">
+      <ion-avatar item-left>
+        <ion-icon class='icon-btn' name="book"></ion-icon>
+      </ion-avatar>
+      <ion-label>{{t.language.Help}}</ion-label>
+    </ion-item>
+
+
+    <ion-list-header>
+    </ion-list-header>
+    <ion-item (click)="logout()">
+      <ion-avatar item-left>
+        <ion-icon class='icon-btn' name="log-out"></ion-icon>
+      </ion-avatar>
+      <ion-label>{{t.language.Logout}}</ion-label>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

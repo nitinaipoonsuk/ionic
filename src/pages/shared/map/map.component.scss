@@ -1,0 +1,25 @@
+
+@import "../../../theme/variables.scss";
+
+/*.sebm-google-map-container{
+    height: 90vh;
+}*/
+app-map {
+    .map {
+    height: 100%;
+    width: 100%;
+    }
+
+    .info-window{
+        width: 200px;
+    }
+
+    .toast-message{
+        font-size: 3vh
+    }
+
+    div.toast-wrapper.toast-bottom{
+        background-color: orange
+    }
+
+}

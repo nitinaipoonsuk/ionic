@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar color="bsup">
+    <ion-title>
+      {{headerName}}({{historyModel ? historyModel.HistoryEvents.length : 0}}/{{historyModel ? historyModel.DataAllLength : 0}})
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <page-loading *ngIf="loading" loading=loading></page-loading>
+
+  <app-history-list (listClick)="openMap($event)"></app-history-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" [enabled]="enabled" threshold="100px">
+    <ion-infinite-scroll-content loadingSpinner="dots" loadingText="{{t.language.Loading}}"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <ion-fab left bottom >
+    <button ion-fab color="bsup">{{t.language.Total}}</button>
+    <ion-fab-list side="top">
+      <button ion-button round small full color="bsup">{{t.language.Parkingtime}}: {{historyModel && historyModel.TimeParkingTotal}}</button>
+      <button ion-button round small full color="bsup">{{t.language.Stoppingtime}}: {{historyModel && historyModel.TimeStoppingTotal}}</button>
+      <button ion-button round small full color="bsup">{{t.language.Runningtime}}: {{historyModel && historyModel.TimeRunningTotal}}</button>
+      <button ion-button round small full color="bsup">{{t.language.Speed}}: {{historyModel && historyModel.AvgSpeed}} {{t.language.KmH}}</button>
+      <button ion-button round small full color="bsup">{{t.language.Length}}: {{historyModel && historyModel.LengthTotal}} {{t.language.Km}}</button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

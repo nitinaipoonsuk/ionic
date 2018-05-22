@@ -1,0 +1,1 @@
+export {SettingreportSelectPage} from './settingreport-select'

@@ -1,0 +1,1 @@
+export { MultiselectLicenseComponent } from './multiselect-license';

@@ -1,0 +1,89 @@
+<!--
+  Generated template for the ReportSelectDaily page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="bsup">
+    <ion-title>{{headerName}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-card padding *ngFor="let item of dailyReports">
+
+      <ion-card-header>
+        <ion-row>
+          <ion-col (click)="toggleDetails(item)">
+            <b>{{item.Date}}</b>
+            <p *ngIf="item.DriveOverTime" class="font-head-overusag">{{item.DriveOverTime}}</p>
+            <p *ngIf="!item.DriveOverTime">{{t.language.RunTimeMax}}: {{item.RunTimeMax}}</p>
+          </ion-col>
+          <ion-col col-2 text-right>
+            <ion-icon id=graph name="pie" color="bsup" (click)="showChart(item)"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-card-header>
+
+      <ion-card-content *ngIf="item.showDetails">
+        <ion-grid>
+          <ion-row>
+            <h3 col-6>{{t.language.Idletimes}}</h3>
+            <p col-6 text-right>{{item.IdleTimes}}</p>
+          </ion-row>
+
+          <ion-row>
+            <h3 col-6>{{t.language.Idletotal}}</h3>
+            <p col-6 text-right>{{item.IdleTotal}}</p>
+          </ion-row>
+
+          <ion-row>
+            <h3 col-6>{{t.language.Parktimes}}</h3>
+            <p col-6 text-right>{{item.ParkTimes}}</p>
+          </ion-row>
+
+          <ion-row>
+            <h3 col-6>{{t.language.Parktotal}}</h3>
+            <p col-6 text-right>{{item.ParkTotal}}</p>
+          </ion-row>
+
+          <ion-row>
+            <h3 col-6>{{t.language.Overspeedtimes}}</h3>
+            <p col-6 text-right>{{item.OverTimes}}</p>
+          </ion-row>
+
+          <ion-row>
+            <h3 col-6>{{t.language.Overspeedmax}}</h3>
+            <p col-6 text-right>{{item.OverMax}}</p>
+          </ion-row>
+
+          <ion-row>
+            <h3 col-6>{{t.language.TotalUsag}}</h3>
+            <p col-6 text-right>{{item.TotalUsag}}</p>
+          </ion-row>
+
+          <ion-row>
+            <h3 col-6>{{t.language.TotalDis}}</h3>
+            <p col-6 text-right>{{item.TotalDis}}</p>
+          </ion-row>
+
+          <ion-row>
+            <h3 col-6>{{t.language.Ig}}</h3>
+            <p col-6 text-right>{{item.Ig}}</p>
+          </ion-row>
+
+          <ion-row *ngIf="item.Stations.length > 0">
+            <ion-col align="right">
+              <ion-icon name="home" color="bsup" (click)="reportSelectStation(item)"> {{t.language.Station}}</ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>

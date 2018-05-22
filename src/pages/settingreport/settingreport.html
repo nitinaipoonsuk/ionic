@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar color="bsup">
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <page-loading *ngIf="loading" loading=loading></page-loading>
+  <ion-grid *ngIf="!loading">
+    <ion-item>
+      <ion-label color="bsup" floating>{{t.language.OverSpeedMax}} {{t.language.KmH}}</ion-label>
+      <ion-input type="number" min="0" [(ngModel)]="model.OverSpeedMax"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="bsup" floating>{{t.language.OverSpeedTimes}}</ion-label>
+      <ion-input type="number" min="0" [(ngModel)]="model.OverSpeedMinute"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="bsup" floating>{{t.language.IdleTimes}}</ion-label>
+      <ion-input type="number" min="0" [(ngModel)]="model.IdleMinute"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="bsup" floating>{{t.language.ParkTimes}}</ion-label>
+      <ion-input type="number" min="0" [(ngModel)]="model.ParkMinute"></ion-input>
+    </ion-item>
+
+    <ion-row>
+      <ion-col col-12>
+        <button ion-button round full color="bsup" (click)="saveSetting()">{{t.language.Save}}</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
